@@ -3,7 +3,7 @@ import classes from './Counter.module.css'
 
 const Counter = props => {
     return(
-        <div className="counterPosition">
+        <div className={classes.counterPosition}>
             <p className="header-txt">
                 <small className={classes.underlined} >
                     {props.generation}
