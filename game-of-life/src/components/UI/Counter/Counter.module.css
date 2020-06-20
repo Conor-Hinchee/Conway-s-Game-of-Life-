@@ -1,0 +1,12 @@
+.counterPosition{
+    position: fixed;
+    top: 0;
+    right: 50px;
+    width: 5%;
+  }
+  
+.underlined{
+
+    text-align:center;
+    text-decoration:underline;
+}
