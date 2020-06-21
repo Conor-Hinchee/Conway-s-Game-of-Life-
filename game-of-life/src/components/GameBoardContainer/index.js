@@ -6,13 +6,11 @@ import GameBoard from './GameBoard';
 
 const GameBoardContainer = () => {
     const [tick, setTick] = useState(0);
-    
     const [boardSize, setBoardSize] = useState({
         boardSize:"md",
         height: 65,
         width: 35 
     });
-
     const [gameBoard, setGameBoard] = useState([]);
 
     useEffect(()=> {

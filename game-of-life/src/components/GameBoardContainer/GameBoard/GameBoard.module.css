@@ -1,0 +1,17 @@
+.GameBoard{
+    width: 650px;
+    height: 350px;
+    background: white;
+    margin: auto;
+}
+.CellMD{
+    width: 10px;
+  height: 10px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  display: inline-block;
+  float: left;
+  background: white;
+}
