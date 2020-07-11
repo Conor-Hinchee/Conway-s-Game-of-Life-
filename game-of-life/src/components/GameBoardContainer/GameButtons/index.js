@@ -6,10 +6,10 @@ const GameButtons = props => {
   return (
     <Row>
       <Col className='text-center'>
-        <Button buttonTxt={'Play'} />
+        <Button buttonTxt={'Play'} propagateClick = {props.play} />
       </Col>
       <Col className='text-center'>
-        <Button buttonTxt={'Pause'} />
+        <Button buttonTxt={'Pause'} propagateClick = {props.pause} />
       </Col>
       <Col className='text-center'>
         <Button buttonTxt={'clear'} />

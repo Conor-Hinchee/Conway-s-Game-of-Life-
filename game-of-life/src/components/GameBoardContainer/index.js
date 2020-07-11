@@ -5,12 +5,15 @@ import RNG from '../functions/RNG';
 import GameBoard from './GameBoard';
 
 const GameBoardContainer = () => {
+    const [clockReference, setClockReference] = useState();
+    const [playing, setPlaying] = useState(true);
     const [tick, setTick] = useState(0);
     const [boardSize, setBoardSize] = useState({
         boardSize:"md",
-        height: 65,
-        width: 35 
+        height: 14,
+        width: 26 
     });
+
     const [gameBoard, setGameBoard] = useState([]);
 
     useEffect(()=> {
@@ -19,6 +22,8 @@ const GameBoardContainer = () => {
         const tickInterval = setInterval(() => {
             setTick(prevState => prevState + 1);
         }, 1000);
+
+        setClockReference(tickInterval);
 
 
         let seededBoard = [];
@@ -32,10 +37,30 @@ const GameBoardContainer = () => {
         return () => clearInterval(tickInterval);
     }, []);
 
+    const pauseGame = () => {
+        clearInterval(clockReference)
+        setPlaying(false);
+    }
+
+    const playGame = () => {
+        if(!playing){
+            const tickInterval = setInterval(() => {
+                setTick(prevState => prevState + 1);
+            }, 1000);
+    
+            setClockReference(tickInterval);
+            setPlaying(true);
+        }
+        
+    }
+
     return (
         <>
             <Counter generation={tick} />
-            <GameButtons />
+            <GameButtons 
+                play = {playGame}
+                pause = {pauseGame}
+            />
             <GameBoard board={gameBoard}/>
         </>
     );
