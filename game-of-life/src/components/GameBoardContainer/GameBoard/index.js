@@ -3,7 +3,7 @@ import { Row } from 'reactstrap';
 import classes from "./GameBoard.module.css";
 import spriteAlive from '../../../assets/spriteAlive.png'
 // import spriteAlive from '../../../assets/spriteBaby.png'
-// import spriteAlive from '../../../assets/spriteDead.png'
+import spriteDead from '../../../assets/spriteDead.png'
 
 const GameBoard = props => {
     // console.log(props.board)
@@ -15,8 +15,10 @@ const GameBoard = props => {
                         <div
                           className={classes.CellMD}
                         > 
-                            {i && 
+                            {i.status ? 
                                 <img src={spriteAlive} className="img-fluid" />
+                                :
+                                <img src={spriteDead} className="img-fluid" />
                             }
                         </div>
                     )    
